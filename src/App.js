@@ -1,23 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Chart } from "react-google-charts";
+
+const options = {
+  title: "Most popular programmming languages",
+  is3D: true,
+};
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Chart
+        chartType="PieChart"
+        data={[
+          ["Language", "% of users"],
+          ["JavaScript", 18.1],
+          ["Java", 14.7],
+          ["C#", 14.3],
+          ["Python", 12.1],
+          ["PHP", 10.1],
+          ["TypeScript", 6.9],
+          ["C++", 4.6],
+          ["Swift", 3.1],
+          ["Ruby", 3],
+          ["Other", 13.1],
+        ]}
+        options={options}
+        width="100%"
+        height="400px"
+        legendToggle
+      />
     </div>
   );
 }
